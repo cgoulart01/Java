@@ -1,6 +1,8 @@
 
 public class TestaVariaveis {
-
+/**
+ * criando um comentário
+ * */
 	
 	public static void main (String[] args) {
 		
