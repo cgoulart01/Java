@@ -89,26 +89,36 @@ public class Conta {
 	}
 
 	public void deposita(double valor) {
-		Random gerador = new Random(100000000);
 		if (valor > 0) {
 			this.saldo += valor;
-			System.out.println("Código da transação: " + gerador.nextLong());
-			System.out.println("deposito no valor de R$" + valor);
-			System.out.println("Nome do Titular: " + this.titular.getNome());
-			System.out.println("Agência: " + this.getAgencia());
-			System.out.println("Número da Conta: " + this.getNumero());
-			System.out.println("Saldo atual: R$" + String.valueOf(getSaldo()));
+			this.transacao(valor,"Depósito");
 			System.out.println();
 		} else {
 			System.out.println("Valor inválido.");
 		}
 	}
 
+	private void transacao(double valor,String exec) {
+		/**
+		 * descobir como gerar um número aleatório diferente para
+		 * toda transação efetuada
+		 */
+		Random gerador = new Random(999999999999999999l);
+		System.out.println("Código da transação: " + gerador.nextLong());
+		System.out.println(exec+" no valor de R$" + valor);
+		System.out.println("Nome do Titular: " + this.titular.getNome());
+		System.out.println("Agência: " + this.getAgencia());
+		System.out.println("Número da Conta: " + this.getNumero());
+		System.out.println("Saldo atual: R$" + String.valueOf(getSaldo()));
+	}
+
 	public boolean saca(double valor) {
 		if (valor > this.saldo) {
+			System.out.println("Valor inválido");
 			return false;
 		}
 		this.saldo -= valor;
+		this.transacao(valor, "Saque");
 		return true;
 	}
 
