@@ -14,9 +14,10 @@ public class TestaBanco {
 		Conta contaDocliente2 = new Conta(cliente2);
 		Conta contaDocliente3 = new Conta(cliente);
 
-		contaDocliente2.deposita(1200);
 		contaDocliente.deposita(1000);
+		contaDocliente2.deposita(1200);
 		contaDocliente3.deposita(1500);
+		contaDocliente.saca(200);
 
 	}
 }
