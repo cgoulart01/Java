@@ -84,6 +84,7 @@ public class Conta {
 	private String setNumero() {
 		Random random = new Random();
 		int gen1 = random.nextInt(Conta.numerosContas);
+		Conta.numerosContas++;
 		return validaNumero(gen1);
 	}
 
