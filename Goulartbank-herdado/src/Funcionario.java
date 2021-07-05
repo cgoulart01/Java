@@ -1,12 +1,10 @@
 
 public class Funcionario {
 	private Pessoa pessoa;
-	private String cargo;
-	private double salario;
-	public Funcionario(Pessoa valor,String vaga, double vencimento) {
+	private Cargo cargo;
+	public Funcionario(Pessoa valor,Cargo vaga) {
 		pessoa = valor;
 		cargo = vaga;
-		salario = vencimento;
 	}
 	public String getCpf() {
 		return this.pessoa.getCpf();
@@ -15,19 +13,14 @@ public class Funcionario {
 		return this.pessoa.getNome();
 	}
 	public double getSalario() {
-		return salario;
+		return this.cargo.getSalario();
 	}
-	public void setSalario(double salario) {
-		this.salario = salario;
+	public double getsalarioComBonus(){
+		return this.cargo.salarioComBonus();
 	}
 	public String getCargo() {
-		return cargo;
-	}
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
+		return this.cargo.getCargo();
 	}
 	
-	private double getBonus() {
-		return this.salario*0.1;
-	}
+	
 }
