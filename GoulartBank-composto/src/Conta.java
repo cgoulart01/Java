@@ -1,18 +1,18 @@
 import java.util.Random;
 
 public class Conta {
+	
 	private double saldo;
 	private String agencia;
 	private String numero;
-	@SuppressWarnings("unused")
 	private Cliente titular;
-	private int numerosAgencia =1500;
+	private int numerosAgencia = 1500;
 	private int numerosContas = 25;
 
-	public Conta(Cliente titular1) {
+	public Conta(Cliente nome) {
 		agencia = this.setAgencia();
 		numero = this.setNumero();
-		titular = titular1;
+		titular = nome;
 	}
 
 	public int gerador() {
@@ -30,6 +30,11 @@ public class Conta {
 		return this.agencia;
 
 	}
+	public int getNumeroAgencia() {
+		return this.numerosAgencia;
+
+	}
+	
 	
 	public Cliente getTitular() {
 		return this.titular;
