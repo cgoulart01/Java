@@ -6,9 +6,5 @@ public class CriarConta {
 		System.out.println(primeira.saldo);
 
 		Conta segundaConta = new Conta();
-		segundaConta.saldo+=300;
-		System.out.println(segundaConta.saldo);
-		segundaConta.saldo = 1000;
-		System.out.println(segundaConta.saldo);
 	}
 }

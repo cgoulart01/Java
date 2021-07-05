@@ -17,11 +17,10 @@ public class Conta {
 	}
 
 	public boolean tranfere(double valor, Conta destino) {
-		if(valor>this.saldo) {
-			return false;
-		}if(this.saldo==0) {
-		return false;	
-	} else {
-		return true;
+		if (this.saldo>=valor){
+		this.saldo-= valor;
+		destino.deposita(valor);
+	}
+		return false;
 	}
 }
