@@ -1,18 +1,25 @@
 import java.util.Random;
 
 public class Conta {
-	
+
 	private double saldo;
 	private String agencia;
 	private String numero;
 	private Cliente titular;
-	private int numerosAgencia = 1500;
-	private int numerosContas = 25;
+	private static int numerosAgencia = 1500;
+	private static int numerosContas = 25;
 
 	public Conta(Cliente nome) {
+		System.out.println(nome.getNome() + " sua conta está sendo criada...");
 		agencia = this.setAgencia();
 		numero = this.setNumero();
 		titular = nome;
+		System.out.println("Nome do Titular: " + nome.getNome());
+		System.out.println("Agência: " + this.getAgencia());
+		System.out.println("Número da Conta: " + this.getNumero());
+		System.out.println("Saldo: R$" + String.valueOf(getSaldo()));
+		System.out.println("sua conta foi Criada com Sucesso.");
+		System.out.println();
 	}
 
 	public int gerador() {
@@ -30,12 +37,7 @@ public class Conta {
 		return this.agencia;
 
 	}
-	public int getNumeroAgencia() {
-		return this.numerosAgencia;
 
-	}
-	
-	
 	public Cliente getTitular() {
 		return this.titular;
 
@@ -48,46 +50,57 @@ public class Conta {
 
 	private String setAgencia() {
 		Random random = new Random();
-		int gen1 =random.nextInt(this.numerosAgencia)+1;
-		if(gen1>0) {
+		int gen1 = random.nextInt(Conta.numerosAgencia);
+		if (gen1 > 0) {
 			this.setNumerosAgencia();
 			return String.valueOf(gen1);
-			}else {
+		} else {
 			return this.setAgencia();
-			}
 		}
-		
+	}
+
 	private void setNumerosAgencia() {
-		this.numerosAgencia++;
+		Conta.numerosAgencia++;
 	}
 
 	private void setNumerosConta() {
-		this.numerosContas++;
-		
+		Conta.numerosContas++;
+
 	}
 
 	private String validaNumero(int gen1) {
-		if(gen1>0) {
-			if(gen1<=9) {
-			this.setNumerosConta();
-			return "0" + String.valueOf(gen1);
-			
-			}else
-			return String.valueOf(gen1);
-			}else {
-			return this.setNumero();
-			}
-		}
+		if (gen1 > 0) {
+			if (gen1 <= 9) {
+				this.setNumerosConta();
+				return "0" + String.valueOf(gen1);
 
-	
-	private String setNumero() {
-	Random random = new Random();
-	int gen1 =random.nextInt(this.numerosContas);	
-	return validaNumero(gen1);
+			} else
+				return String.valueOf(gen1);
+		} else {
+			return this.setNumero();
+		}
 	}
-	
+
+	private String setNumero() {
+		Random random = new Random();
+		int gen1 = random.nextInt(Conta.numerosContas);
+		return validaNumero(gen1);
+	}
+
 	public void deposita(double valor) {
-		this.saldo += valor;
+		Random gerador = new Random(100000000);
+		if (valor > 0) {
+			this.saldo += valor;
+			System.out.println("Código da transação: " + gerador.nextLong());
+			System.out.println("deposito no valor de R$" + valor);
+			System.out.println("Nome do Titular: " + this.titular.getNome());
+			System.out.println("Agência: " + this.getAgencia());
+			System.out.println("Número da Conta: " + this.getNumero());
+			System.out.println("Saldo atual: R$" + String.valueOf(getSaldo()));
+			System.out.println();
+		} else {
+			System.out.println("Valor inválido.");
+		}
 	}
 
 	public boolean saca(double valor) {
