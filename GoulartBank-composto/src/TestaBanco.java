@@ -1,29 +1,22 @@
 
 public class TestaBanco {
 	public static void main(String[] args) {
-		String nome = "Paulo Silveira";
+		String nome = "Caio Vitor Goulart";
 		String cpf = "111.111.111-44";
-		String profissao = "Empresário";
-		Cliente paulo = new Cliente(nome,cpf,profissao);
-			
-		Conta contaDoPaulo = new Conta(paulo);
-		contaDoPaulo.deposita(1000);
-		
-		Conta contaDoPaulo2 = new Conta(paulo);
-		contaDoPaulo2.deposita(1200);
-		Conta contaDoPaulo3 = new Conta(paulo);
-		contaDoPaulo3.deposita(1500);
-		System.out.println("Conta 1 do "+ contaDoPaulo.getTitular().getNome());
-		System.out.println(contaDoPaulo.getAgencia());
-		System.out.println(contaDoPaulo.getNumero());
-		System.out.println(contaDoPaulo.getSaldo());
-		System.out.println("Conta 2 do "+ contaDoPaulo2.getTitular().getNome());
-		System.out.println(contaDoPaulo2.getAgencia());
-		System.out.println(contaDoPaulo2.getNumero());
-		System.out.println(contaDoPaulo2.getSaldo());
-		System.out.println("Conta 3 do " + contaDoPaulo3.getTitular().getNome());
-		System.out.println(contaDoPaulo3.getAgencia());
-		System.out.println(contaDoPaulo3.getNumero());
-		System.out.println(contaDoPaulo3.getSaldo());
+		String profissao = "Programador";
+		Cliente cliente = new Cliente(nome, cpf, profissao);
+		String nome2 = "Maria Joaquia";
+		String profissao2 = "Estudante";
+		String cpf2 = "155.194.837-94";
+		Cliente cliente2 = new Cliente(nome2, cpf2, profissao2);
+
+		Conta contaDocliente = new Conta(cliente);
+		Conta contaDocliente2 = new Conta(cliente2);
+		Conta contaDocliente3 = new Conta(cliente);
+
+		contaDocliente2.deposita(1200);
+		contaDocliente.deposita(1000);
+		contaDocliente3.deposita(1500);
+
 	}
 }
